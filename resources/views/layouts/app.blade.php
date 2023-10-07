@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>Sancash | {{ $title }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -19,7 +19,14 @@
         @include('sweetalert::alert')
         @include('layouts.navbar')
 
-        <main class="container">
+        <main class="container my-5">
+
+            <Div class="row mb-3 ">
+                <div class="col-md-12 col-lg-12">
+                    @yield('header')
+                </div>
+            </Div>
+
             {{ $slot }}
         </main>
         
