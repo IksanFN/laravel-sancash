@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,15 @@ Route::middleware('auth')->group(function () {
        Route::put('/edit/{user:uuid}', [UserController::class, 'update'])->name('update'); 
        Route::delete('/delete/{user:uuid}', [UserController::class, 'destroy'])->name('destroy'); 
     });
+
+    Route::prefix('students')->name('students.')->group(function() {
+        Route::get('/', [StudentController::class, 'index'])->name('index'); 
+        Route::get('/create', [StudentController::class, 'create'])->name('create'); 
+        Route::post('/create', [StudentController::class, 'store'])->name('store'); 
+        Route::get('/edit/{student:uuid}', [StudentController::class, 'edit'])->name('edit'); 
+        Route::put('/edit/{student:uuid}', [StudentController::class, 'update'])->name('update'); 
+        Route::delete('/delete/{student:uuid}', [StudentController::class, 'destroy'])->name('destroy'); 
+     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
