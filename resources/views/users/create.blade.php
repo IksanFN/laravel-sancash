@@ -66,4 +66,12 @@
         </div>
     </div>
 
+    @push('script')
+        <script>
+            $("select").select2({
+                theme: "bootstrap-5",
+                dropdownCssClass: "select2--small",
+            });
+        </script>
+    @endpush
 </x-app-layout>

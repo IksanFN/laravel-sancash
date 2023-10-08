@@ -11,4 +11,9 @@ class Student extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded = [];
+
+    public function getRouteKeyName()
+    {
+        return 'uuid';
+    }
 }

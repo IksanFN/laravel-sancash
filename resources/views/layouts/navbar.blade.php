@@ -10,7 +10,9 @@
             <a class="nav-link" aria-current="page" href="">Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Pelajar</a>
+            <x-navbar-link :href="route('students.index')" :active="request()->routeIs('students.*')">
+            Pelajar
+            </x-navbar-link>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="">Tagihan</a>
@@ -22,7 +24,9 @@
             <a class="nav-link" href="">Pengeluaran</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('users.index') }}">Pengguna</a>
+            <x-navbar-link :href="route('users.index')" :active="request()->routeIs('users.*')">
+              Pengguna
+            </x-navbar-link>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -41,7 +45,7 @@
             {{ Auth::user()->name }}
             <img src="" width="40" height="40" class="ms-2 rounded-circle">
           </a>
-          <ul class="dropdown-menu text-small shadow">
+          <ul class="dropdown-menu text-small shadow-smooth border-0">
             <li><a class="dropdown-item" href="#">My Dashboard</a></li>
             <li><a class="dropdown-item" href="#">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
