@@ -15,7 +15,9 @@
             </x-navbar-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Tagihan</a>
+            <x-navbar-link :href="route('bills.index')" :active="request()->routeIs('bills.*')">
+              Tagihan
+            </x-navbar-link>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="">Transaksi</a>
