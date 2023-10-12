@@ -27,6 +27,21 @@ class BillController extends Controller
         return view('bills.first-week');
     }
 
+    public function secondWeek()
+    {
+        return view('bills.second-week');
+    }
+
+    public function thirdWeek()
+    {
+        return view('bills.third-week');
+    }
+
+    public function fourthWeek()
+    {
+        return view('bills.fourth-week');
+    }
+
     public function createAll()
     {
         $years = Year::all();
@@ -201,5 +216,6 @@ class BillController extends Controller
 
         return to_route('bills.index');
     }
+    
 
 }

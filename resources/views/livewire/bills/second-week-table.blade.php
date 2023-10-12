@@ -5,14 +5,7 @@
                 <div class="col-md-3">
                     <input type="text" wire:model.live.debounce.1000ms='query' placeholder="Search" class="form-control">
                 </div>
-                <div class="col-md-2">
-                    <select wire:model.live='group' id="" class="form-select">
-                        <option value="" selected>--Filter Kelas--</option>
-                        @foreach ($groups as $group)
-                            <option value="{{ $group->student_group }}">{{ $group->student_group }}</option>
-                        @endforeach
-                    </select>
-                </div>
+                
                 <div class="col-md-4 ms-auto text-end">
                     <a href="" class="btn btn-success shadow-sm"><i class="bi bi-file-earmark-fill me-1"></i> Excel</a>
                 </div>
@@ -44,9 +37,9 @@
                         <th class="text-center">Aksi</th>
                     </thead>
                     <tbody class="align-middle">
-                        @forelse ($billFirstWeek as $bill)
+                        @forelse ($secondWeeks as $bill)
                             <tr wire:key='{{ $bill->id }}'>
-                                <td>{{ $loop->index + $billFirstWeek->firstItem() }}</td>
+                                <td>{{ $loop->index + $secondWeeks->firstItem() }}</td>
                                 <td>{{ $bill->bill_code }}</td>
                                 <td>{{ $bill->student_nisn }}</td>
                                 <td>{{ $bill->student_name }}</td>
@@ -95,7 +88,7 @@
                         
                     </tbody>
                 </table>
-                {{ $billFirstWeek->links() }}
+                {{ $secondWeeks->links() }}
             </div>
         </div>
     </div>

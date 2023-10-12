@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->uuid()->unique();
+            $table->foreignId('first_week_id')->nullable();
+            $table->foreignId('second_week_id')->nullable();
+            $table->foreignId('third_week_id')->nullable();
+            $table->foreignId('fourth_week_id')->nullable();
             $table->string('trx_code')->unique();
-            $table->string('bill_code')->unique();
             $table->string('student_nisn');
             $table->string('student_name');
             $table->string('student_major');
@@ -28,6 +31,11 @@ return new class extends Migration
             $table->unsignedBigInteger('bill');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('first_week_id')->references('id')->on('first_weeks');
+            $table->foreign('second_week_id')->references('id')->on('second_weeks');
+            $table->foreign('third_week_id')->references('id')->on('third_weeks');
+            $table->foreign('fourth_week_id')->references('id')->on('fourth_weeks');
         });
     }
 
