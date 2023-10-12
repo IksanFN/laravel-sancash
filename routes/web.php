@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BillController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
@@ -31,7 +32,17 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{student:uuid}', [StudentController::class, 'edit'])->name('edit'); 
         Route::put('/edit/{student:uuid}', [StudentController::class, 'update'])->name('update'); 
         Route::delete('/delete/{student:uuid}', [StudentController::class, 'destroy'])->name('destroy'); 
-     });
+    });
+
+    Route::prefix('bills')->name('bills.')->group(function() {
+        Route::get('/', [BillController::class, 'index'])->name('index');
+        Route::get('/first-week', [BillController::class, 'firstWeek'])->name('first_week');
+        Route::get('/second-week', [BillController::class, 'secondWeek'])->name('second_week');
+        Route::get('/third-week', [BillController::class, 'thirdWeek'])->name('third_week');
+        Route::get('/fourth-week', [BillController::class, 'fourthWeek'])->name('fourth_week');
+        Route::get('/create-all', [BillController::class, 'createAll'])->name('create_all');
+        Route::post('/create-all', [BillController::class, 'store'])->name('store');
+    });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

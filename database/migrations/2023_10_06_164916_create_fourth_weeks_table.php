@@ -23,8 +23,6 @@ return new class extends Migration
             $table->string('student_major');
             $table->string('student_group');
             $table->string('student_phone');
-            $table->string('bill_month');
-            $table->string('bill_year');
             $table->unsignedBigInteger('bill');
             $table->date('start_of_week');
             $table->date('end_of_week');
